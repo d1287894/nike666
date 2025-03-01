@@ -3,89 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>nike666</title>
-  <!-- 引入 Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
-  <style>
-    /* 左上角圖片樣式 */
-    .top-left-image {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 150px;
-      height: auto;
-    }
-
-    /* 通用樣式 */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* 容器居中樣式 */
-    .container {
-      text-align: center;
-      margin-top: 20vh;
-    }
-
-    /* 文字樣式 */
-    .large-text {
-      font-size: 72px;
-      color: black;
-      font-weight: 300;
-    }
-
-    .gray-text {
-      font-size: 25px;
-      color: gray;
-      margin-top: 30px; /* 與標題保持間距 */
-    }
-
-    /* 產品文字樣式 */
-    .product-text {
-      font-size: 22px; /* 字體稍小於標題 */
-      font-weight: bold; /* 加粗 */
-      color: black; /* 黑色字體 */
-      margin-top: 20px; /* 與說明文字間距 */
-    }
-
-    /* 圖片樣式 */
-    .center-image {
-      width: 30%;
-      height: auto;
-      margin-top: 30px; /* 與產品文字保持間距 */
-    }
-  </style>
 </head>
 <body>
 
-<!-- 左上角新增 2.png 並設置為可點擊 -->
-<a href="https://www.nike.com/tw/launch" target="_blank">
-  <img src="img/2.png" alt="Top Left Image" class="top-left-image">
-</a>
-
-<!-- 居中內容區域 -->
-<div class="container">
-  <!-- 顯示大字 -->
-  <div class="large-text">
-    YOU'RE IN LINE ...
-  </div>
-
-  <!-- 說明文字 -->
-  <div class="gray-text">
-    We will notify you in a moment whether you get a pair or not.
-  </div>
-
-  <!-- 新增產品標示文字 -->
-  <div class="product-text">
-    Kobe 6 Protro 'Sail' $6700.00
-  </div>
-
-  <!-- 中間圖片 -->
-  <img src="img/3.png" alt="Image" class="center-image">
+<!--新增 YOU'RE IN LINE ...文字並排版-->
+<div style="text-align: center; margin-top: 20vh; font-size: 72px; color: black;">
+  YOU'RE IN LINE ...
 </div>
+
+<!--新增 We will notify you in a moment whether you get a pair or not.文字並排版-->
+<div style="text-align: center; font-size: 25px; color: gray; margin-top: 20px;">
+  We will notify you in a moment whether you get a pair or not.
+</div>
+
 
 </body>
 </html>
