@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>nike666</title>
-  <!-- 引入 Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
   <style>
@@ -30,11 +29,11 @@
       margin-top: 8vh; /* 整體內容上移，減少頁面高度 */
     }
 
-    /* 灰色圓形圖片樣式 */
-    .gray-circle {
-      width: 25px; /* 縮小50% */
-      height: 25px; /* 高度縮小 */
-      margin: 5px auto; /* 圖片上下間距減小，讓內容更加緊湊 */
+    /* 圓形圖片樣式（通用） */
+    .circle {
+      width: 25px;
+      height: 25px;
+      margin: 5px auto;
       display: block;
     }
 
@@ -43,14 +42,14 @@
       font-size: 72px;
       color: black;
       font-weight: 300;
-      margin-top: 15px; /* 與上方灰色圓形保留少量距離 */
+      margin-top: 15px;
     }
 
     /* 說明文字樣式 */
     .gray-text {
       font-size: 25px;
       color: gray;
-      margin-top: 20px; /* 與標題保留適中間距 */
+      margin-top: 20px;
     }
 
     /* 產品文字樣式 */
@@ -58,14 +57,15 @@
       font-size: 22px;
       font-weight: bold;
       color: black;
-      margin-top: 15px; /* 與說明文字間距調整更緊湊 */
+      margin-top: 15px;
     }
 
     /* 圖片樣式 */
     .center-image {
       width: 30%;
       height: auto;
-      margin-top: 20px; /* 與產品文字保持統一間距 */
+      margin-top: 20px;
+      cursor: pointer; /* 滑鼠變為點擊手型 */
     }
   </style>
 </head>
@@ -79,10 +79,10 @@
 <!-- 居中內容區域 -->
 <div class="container">
 
-  <!-- 灰色圓形圖片 -->
-  <img src="img/灰.png" alt="Gray Circle" class="gray-circle">
-  <img src="img/灰.png" alt="Gray Circle" class="gray-circle">
-  <img src="img/灰.png" alt="Gray Circle" class="gray-circle">
+  <!-- 計數器：3個圓形 -->
+  <img src="img/黑.png" alt="Black Circle" class="circle" id="circle1"> <!-- 預設第一個黑色 -->
+  <img src="img/灰.png" alt="Gray Circle" class="circle" id="circle2">
+  <img src="img/灰.png" alt="Gray Circle" class="circle" id="circle3">
 
   <!-- 顯示主標題 -->
   <div class="large-text">
@@ -99,9 +99,56 @@
     Kobe 6 Protro 'Sail' $6700.00
   </div>
 
-  <!-- 中間圖片 -->
-  <img src="img/3.png" alt="Image" class="center-image">
+  <!-- 中間圖片（點擊計數） -->
+  <img src="img/3.png" alt="Image" class="center-image" id="clickable-image">
 </div>
 
+<script>
+  // 初始化點擊次數
+  let clickCount = 0; // 初始為 0，表示當前是第一個圓為黑色
+
+  // 定義所有圓圈的元素
+  const circles = [
+    document.getElementById('circle1'),
+    document.getElementById('circle2'),
+    document.getElementById('circle3')
+  ];
+
+  // 定義圖片的路徑
+  const grayCircleSrc = 'img/灰.png'; // 灰色圖片
+  const blackCircleSrc = 'img/黑.png'; // 黑色圖片
+
+  // 網頁載入後初始化圓圈狀態（如有其他需求，可在此調整初始化行為）
+  function initializeCircles() {
+    // 確保第一個圓為黑色，其餘為灰色
+    circles.forEach((circle, index) => {
+      if (index === 0) {
+        circle.src = blackCircleSrc;
+      } else {
+        circle.src = grayCircleSrc;
+      }
+    });
+  }
+
+  // 點擊事件：處理圖片切換
+  document.getElementById('clickable-image').addEventListener('click', () => {
+    // 更新點擊次數：從 0 開始，點擊一次後變成 1
+    clickCount = (clickCount + 1) % 3;
+
+    // 更新圓圈顏色
+    circles.forEach((circle, index) => {
+      if (index === clickCount) {
+        // 當前選中的變為黑色
+        circle.src = blackCircleSrc;
+      } else {
+        // 其他的變回灰色
+        circle.src = grayCircleSrc;
+      }
+    });
+  });
+
+  // 初始化網頁初始狀態
+  initializeCircles();
+</script>
 </body>
 </html>
